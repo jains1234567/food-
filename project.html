@@ -1,0 +1,99 @@
+<?php 
+try{
+$db=new mysqli("localhost","root","","my_dumy_db");
+}
+catch(Exception $exc){
+    echo $exc->getTraceAsString();}
+
+if(isset($_POST['name'])&&isset($_POST['email'])&&isset($_POST['address'])&&isset($_POST['message']))
+$name=$_POST['name'];
+$email=$_POST['email'];
+$address=$_POST['address'];
+$message=$_POST['message'];
+$is_insert =  $db->query("INSERT INTO `data`(`name`,`address`,`email`,`message`) VALUES('$name','$address','$email','$message')") ;
+if($is_insert==TRUE){
+echo"<h2>Thanks ,your request has been submitted .</h2>";
+exit();}
+}?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Online Food Delievery Service|Onlinemeals.com</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div id="logo"><img src="logo.jpg" alt="my online meal.com"></div>
+        <ul>
+            <li class="list"><a href="Home">Home</a></li>
+            <li class="list"><a href="Services">Services</a></li>
+            <li class="list"><a href="About us">About us</a></li>
+            <li class="list"><a href="Contact">Contact us</a></li>
+    </nav></ul>
+    <section id="home">
+        <h1 class="primary">Welcome To MyOnlineMeal</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, commodi! Omnis nulla reiciendis</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicin</p>
+        <button class="btn">Order Now</button></section>
+    <section class="service">
+        <h1 class="primary">Our Services</h1>
+        <div id="services">
+            <div class="box"> <img src="img2.jpg" alt="">
+                <h2 class="seconary">Food Ordering</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque temporibus nemo beatae mollitia
+                    eligendi laudantium odit! Rerum officia, nam sed impedit dolores laudantium quasi voluptates
+                    voluptas, deleniti quod </p></div>
+            <div class="box"><img src="img1.jpg" alt="">
+                <h2 class="seconary"> Food Catering</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque temporibus nemo beatae mollitia
+                    eligendi laudantium odit! Rerum officia, nam sed impedit dolores laudantium quasi voluptates
+                    voluptas, deleniti quod</p></div>
+            <div class="box"><img src="fdeli.jpg" alt="">
+                <h2 class="seconary">Food Delivering </h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam neque temporibus nemo beatae mollitia
+                    eligendi laudantium odit! Rerum officia, nam sed impedit dolores laudantium quasi voluptates
+                    voluptas, deleniti quod</p>
+            </div></div></section>
+    <section id="client">
+        <h1 class="primary"> Our Clients</h1>
+        <div id="clients">
+            <div class="clientitem"><img src="cli.png" alt="our client"></div>
+            <div class="clientitem"><img src="app.png" alt="our client"></div>
+            <div class="clientitem"><img src="client3.jpg" alt="our client"></div>
+            <div class="clientitem"><img src="micr.jpg" alt="our client"></div>
+            <div class="clientitem"><img src="clt.png" alt="our client"></div>
+        </div></section>
+    <section id="contactsection">
+        <h1 class="primary">Contact Us</h1>
+        <div id="contactbox">
+            <form action="" method="post">
+                <div class="formgroup">
+                    <label for="name">Name :</label>
+                    <input type="text" id="name"  name="name"placeholder="enter your name">
+                </div>
+                <div class="formgroup">
+                    <label for="email">Email :</label>
+                    <input type="text" id="name" name="email" placeholder="enter your email">
+                </div>
+                <div class="formgroup">
+                    <label for="address">Address:</label>
+                    <input type="text" id="name" name="address" placeholder="enter your address">
+                </div>
+                <div class="formgroup">
+                    <label for="message">Message:</label>
+                    <textarea name="message" id="message" name="message" cols="40" rows="8"></textarea></div>
+                <div class=btn>
+                    <input type="submit" value="submit request"></div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="center">Copyright &copy; www.MyOnlineMeal.com.All Rights Reserved</div>
+    </footer>
+
+</body>
+</html>
